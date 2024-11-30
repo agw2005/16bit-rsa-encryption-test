@@ -8,7 +8,7 @@
 }
 
 body {
-  margin: 0;
+  margin: 5rem;
 }
 
 .wrapper {
@@ -21,11 +21,20 @@ body {
   display: flex;
   gap: 5rem;
   justify-content: space-around;
-  background-color: red;
+  /* background-color: red; */
 }
 
 .field {
-  width: 500px;
-  height: 500px;
+  width: 50rem;
+  height: 25rem;
   background-color: blue;
+}
+
+.textfield {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box; /* Ensures padding and border are included in the dimensions */
+  border: none; /* Optional: Remove the border if you want it to blend seamlessly */
+  resize: none; /* Optional: Prevent the user from resizing the textarea */
+  outline: none;
 }
