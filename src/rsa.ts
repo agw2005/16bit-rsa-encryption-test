@@ -1,4 +1,4 @@
-export function generateBigPrimeNumber(): number{
+function generateBigPrimeNumber(): number{
     
     function isPrime(num: number): boolean {
         if (num <= 1) return false;
@@ -41,7 +41,7 @@ export function generatePhi(p: number, q: number): number{
     return (p-1)*(q-1)
 }
 
-export function gcd(a: number, b: number): number {
+function gcd(a: number, b: number): number {
     while (b !== 0) {
         let temp = b;
         b = a % b;
@@ -50,7 +50,7 @@ export function gcd(a: number, b: number): number {
     return a;
 }
 
-export function findCoprime(n: number): number[]{
+function findCoprime(n: number): number[]{
     let arrCoprime: number[] = [];
     for(let i = 2 ; i < n ; i++){
         if(gcd(n,i) == 1){
@@ -60,7 +60,7 @@ export function findCoprime(n: number): number[]{
     return arrCoprime
 }
 
-export function findSharedValues(arr1: number[], arr2: number[]): number[] {
+function findSharedValues(arr1: number[], arr2: number[]): number[] {
     return arr1.filter(value => arr2.includes(value));
 }
 
@@ -121,7 +121,7 @@ export function encryptMessage(text: string, publicExponent: number, modulo: num
 }
 
 // Parse the encrypted array of num[] into string for better readibility
-export function mergeEncryptedMessage(message: number[]){
+export function mergeEncryptedMessage(message: number[]): string{
     return message.map(num => num.toString()).join(':');
 }
 
