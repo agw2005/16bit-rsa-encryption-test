@@ -1,21 +1,8 @@
 import { useMemo, useState } from "react";
-import {
-  generatePandQ,
-  generateN,
-  generatePhi,
-  findE,
-  findD,
-  encryptMessage,
-  mergeEncryptedMessage,
-  decryptMessage,
-} from "./rsa.ts";
+import { generateRSAKeys, encryptMessage, decryptMessage } from "./rsa.ts";
 
 function App() {
-  const [p, q] = useMemo(() => generatePandQ(), []);
-  const n = useMemo(() => generateN(p, q), [p, q]);
-  const phi = useMemo(() => generatePhi(p, q), [p, q]);
-  const e = useMemo(() => findE(n, phi), [n, phi]); //Public Exponent
-  const d = useMemo(() => findD(n, phi), [n, phi]); //Private Exponent
+  const [n, e, d] = useMemo(() => generateRSAKeys(), []);
 
   const [plainText, setPlainText] = useState("");
   const [plainTextEncrypted, setPlainTextEncrypted] = useState("");
@@ -23,9 +10,7 @@ function App() {
     event: React.ChangeEvent<HTMLTextAreaElement>
   ) => {
     setPlainText(event.target.value);
-    setPlainTextEncrypted(
-      mergeEncryptedMessage(encryptMessage(event.target.value, e, n))
-    );
+    setPlainTextEncrypted(encryptMessage(event.target.value, e, n));
   };
 
   const [encryptedText, setEncryptedText] = useState("");
