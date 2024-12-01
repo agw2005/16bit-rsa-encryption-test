@@ -38,3 +38,14 @@ body {
   resize: none; /* Optional: Prevent the user from resizing the textarea */
   outline: none;
 }
+
+.copy-to-clipboard {
+  color: black;
+  height: 2rem;
+}
+
+.copy-container {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}

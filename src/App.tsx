@@ -22,6 +22,11 @@ function App() {
     setEncryptedTextDecrypted(decryptMessage(event.target.value, d, n));
   };
 
+  // Handle copying to clipboard
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(plainTextEncrypted);
+  };
+
   return (
     <>
       <div className="wrapper">
@@ -45,7 +50,12 @@ function App() {
             </div>
           </div>
           <div className="field-container">
-            <h1>Encrypted plaintext (Output)</h1>
+            <div className="copy-container">
+              <h1>Encrypted plaintext (Output)</h1>
+              <button className="copy-to-clipboard" onClick={copyToClipboard}>
+                Copy
+              </button>
+            </div>
             <div className="field">
               <textarea
                 readOnly
